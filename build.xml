@@ -37,7 +37,7 @@
    <!-- Execute Scenario's parameters -->
    <property name="dir" value="Scenarios" />
    <!-- folder that contains scenario and resources needed by it  -->
-   <property name="scenario" value="DentsplySironaDashboard" />
+   <property name="scenario" value="Githubscenario" />
    <!-- scenario to be executed by executeScenario  -->
    <property name="stopOnFailure" value="false" />
    <!-- when true will throw exception if all testcases in scenario fails  -->
