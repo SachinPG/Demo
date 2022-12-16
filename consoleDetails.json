@@ -1,6 +1,6 @@
 {
   "controller":{
-    "url": "https://localhost:8443",
+    "url": "https://35.82.126.59:8443/",
     "username":"appvance",
     "password":"appvance",
     "workFolder":"C:/project"
