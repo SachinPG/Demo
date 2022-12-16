@@ -1,0 +1,8 @@
+{
+  "controller":{
+    "url": "https://localhost:8443",
+    "username":"appvance",
+    "password":"appvance",
+    "workFolder":"C:/project"
+  }
+}

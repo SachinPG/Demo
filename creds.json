@@ -1,0 +1,11 @@
+{
+  "controller": {
+        "instances":["instance ID should be entered here"],
+		"url":"https://localhost:8443/",
+		"ec2Creds":"ec2.creds",
+		"timeout": 60,
+        "username": "appvance",
+        "password": "appvance",
+        "workFolder": "C:/github_project"
+    }
+}
