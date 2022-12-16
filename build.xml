@@ -15,7 +15,7 @@
    <!-- Dashboard related parameters -->
    <property name="buildVersion" value="${TODAY_MY}" />
    <!-- branch can be used to identify the environment  -->
-   <property name="projectName" value="githubproject" />
+   <property name="projectName" value="githubprojectnew" />
    <!-- projectName can be used to identify the product   -->
    <property name="Bucket" value="naveentesting1" />
    <!--  si1edgwe7i S3 bucket where dashboard structure will be created  -->
