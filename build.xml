@@ -80,7 +80,7 @@
 	<!-- parameters of the AI generation of scenario and scripts  -->
 	<!-- Git parameters -->
 	<property name="localEmptyFolder" value="
-	replace_pathLocalToTriggeringMachine" />
+	C:/projectgit" />
 	<!-- folder local to machine where ant commands are triggered  -->
 	<property name="gitCredentials" value="githttp.json" />
 	<!-- file containing git credentials and repository url  -->
