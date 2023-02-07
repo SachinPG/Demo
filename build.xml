@@ -79,8 +79,7 @@
 	<property name="fileConfig" value="generateRegressionScenario.json" />
 	<!-- parameters of the AI generation of scenario and scripts  -->
 	<!-- Git parameters -->
-	<property name="localEmptyFolder" value="
-	C:/projectgit" />
+	<property name="localEmptyFolder" value="projectgit" />
 	<!-- folder local to machine where ant commands are triggered  -->
 	<property name="gitCredentials" value="githttp.json" />
 	<!-- file containing git credentials and repository url  -->
