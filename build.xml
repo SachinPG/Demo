@@ -8,15 +8,15 @@
 	<property name="lib" value="lib" />
 	<!-- folder to store the dependency RestClient.jar  -->
 	<!-- Dashboard related parameters -->
-	<property name="projectName" value="<replace_projectName>"/>
+	<property name="projectName" value="Dentsply"/>
 	<!-- projectName can be used to identify the test name  -->
 	<property name="Bucket" value="<replace_bucketName>" />
 	<!-- S3 bucket where dashboard structure will be created  -->
-    <property name="product" value="<replace_productName>" />
+    <property name="product" value="Dentsply" />
 	<!-- productName can be used to identify the product  -->
 	<property name="MaxBuilds" value="50" />
 	<!-- max number of historic builds to maintain in dashboard  -->
-	<property name="customer" value="<replace_customerName>" />
+	<property name="customer" value="Dentsply_Sirona" />
 	<!-- customer also titles the Dashboard  -->
 	<property name="environment" value="Web" />
 	<!-- General access parameters -->
@@ -338,11 +338,11 @@
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="${scenario}" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
+		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="Demos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
 		<taskdef name="fetchScenarioResults" classname="com.appvance.ci.FetchScenarioResults">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<fetchScenarioResults aiqCreds="${aiqCreds}" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" scenario="${scenario}" stopOnFailure="${stopOnFailure}" />
+		<fetchScenarioResults aiqCreds="${aiqCreds}" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" scenario="Demos-scenario.scenario" stopOnFailure="${stopOnFailure}" />
 		<taskdef name="gitReporter" classname="com.appvance.ci.git.GitReporter">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
