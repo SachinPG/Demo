@@ -31,7 +31,7 @@
 	<property name="dataset" value="WebDataset.json" />
 	<!-- json data set if needed -->
 	<!-- Execute Scenario's parameters -->
-	<property name="dir" value="scenarios" />
+	<property name="dir" value="Scenarios" />
 	<!-- folder that contains scenario and resources needed by it  -->
 	<property name="scenario" value="functional.scenario" />
 	<!-- scenario to be executed by executeScenario  -->
