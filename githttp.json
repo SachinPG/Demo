@@ -3,5 +3,5 @@
     "repository": "git@github.com:SachinPG/Demo.git",
     "branch": "main",
     "sshPhrase": "",
-    "sshKey": "./id_ed25519.pub"
+    "sshKey": "./id_ed25519.txt"
 }
