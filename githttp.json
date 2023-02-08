@@ -1,6 +1,6 @@
 {
     "username": "sachin@appvance.com",
-    "repository": "ssh://git@github.com:SachinPG/Demo.git",
+    "repository": "ssh://SachinPG/Demo.git",
     "branch": "main",
     "sshPhrase": "",
     "sshKey": "id_ed25519.txt"
