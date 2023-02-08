@@ -3,5 +3,5 @@
     "repository": "git@github.com:SachinPG/Demo.git",
     "branch": "main",
     "sshPhrase": "",
-    "sshKey": "id_ed25519.txt"
+    "sshKey": "C:/ProgramData/Jenkins/.jenkins/workspace/Testgit/id_ed25519.txt"
 }
