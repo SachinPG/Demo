@@ -1,6 +1,7 @@
 {
     "username": "sachin@appvance.com",
-    "password": "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",
-    "repository": "https://github.com/SachinPG/Demo.git",
-    "branch": "main"
+    "repository": "git@github.com:SachinPG/Demo.git",
+    "branch": "main",
+    "sshPhrase": "",
+    "sshKey": ""
 }
