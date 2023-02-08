@@ -2,6 +2,6 @@
     "username": "sachin@appvance.com",
     "repository": "git@github.com:SachinPG/Demo.git",
     "branch": "main",
-    "sshPhrase": "",
+    "sshPhrase": "appvance",
     "sshKey": "C:/ProgramData/Jenkins/.jenkins/workspace/Testgit/id_ed25519.txt"
 }
