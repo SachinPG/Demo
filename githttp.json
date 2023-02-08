@@ -3,5 +3,5 @@
     "repository": "git@github.com:SachinPG/Demo.git",
     "branch": "main",
     "sshPhrase": "appvance",
-    "sshKey": "id_rsa"
+    "sshKey": "id_rsa.pub"
 }
