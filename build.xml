@@ -10,7 +10,7 @@
 	<!-- Dashboard related parameters -->
 	<property name="projectName" value="Dentsply"/>
 	<!-- projectName can be used to identify the test name  -->
-	<property name="Bucket" value="replace_bucketName" />
+	<property name="Bucket" value="replace_bucketName1" />
 	<!-- S3 bucket where dashboard structure will be created  -->
     <property name="product" value="Dentsply" />
 	<!-- productName can be used to identify the product  -->
