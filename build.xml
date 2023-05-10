@@ -10,7 +10,7 @@
 	<!-- Dashboard related parameters -->
 	<property name="projectName" value="Dentsply"/>
 	<!-- projectName can be used to identify the test name  -->
-	<property name="Bucket" value="replace_bucketName1" />
+	<property name="Bucket" value="naveentesting1" />
 	<!-- S3 bucket where dashboard structure will be created  -->
     <property name="product" value="Dentsply" />
 	<!-- productName can be used to identify the product  -->
@@ -243,7 +243,7 @@
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="${scenario}" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
+		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="Demos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
 	</target>
 	
 	<target name="createScenariosDashboard" depends="executeScenario" description="EXAMPLE: ant createScenariosDashboard -Ddir=projectName/scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
