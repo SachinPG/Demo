@@ -8,17 +8,17 @@
 	<property name="lib" value="lib" />
 	<!-- folder to store the dependency RestClient.jar  -->
 	<!-- Dashboard related parameters -->
-	<property name="projectName" value="Dentsply"/>
+	<property name="projectName" value="DemoTest"/>
 	<!-- projectName can be used to identify the test name  -->
 	<property name="Bucket" value="naveentesting1" />
 	<!-- S3 bucket where dashboard structure will be created  -->
-    <property name="product" value="Dentsply" />
+    <property name="product" value="ParameterTest" />
 	<!-- productName can be used to identify the product  -->
 	<property name="MaxBuilds" value="50" />
 	<!-- max number of historic builds to maintain in dashboard  -->
-	<property name="customer" value="Dentsply_Sirona" />
+	<property name="customer" value="Appvance" />
 	<!-- customer also titles the Dashboard  -->
-	<property name="environment" value="Web" />
+	<property name="environment" value="${environment}" />
 	<!-- General access parameters -->
 	<property name="aiqCreds" value="controller.json" />
 	<!-- AIQ server DNS and login creds  -->
@@ -27,13 +27,13 @@
 	<property name="awsCredentials" value="ec2.creds" />
 	<!-- AWS credentials with permission to start and stop the EC2 instances and upload dashboards to s3  -->
 	<!-- private, public-read, authenticated-read, aws-exec-read, bucket-owner-read -->
-	<property name="permission" value="public-read" />
+	<property name="permission" value="private" />
 	<property name="dataset" value="WebDataset.json" />
 	<!-- json data set if needed -->
 	<!-- Execute Scenario's parameters -->
 	<property name="dir" value="Scenarios" />
 	<!-- folder that contains scenario and resources needed by it  -->
-	<property name="scenario" value="functional.scenario" />
+	<property name="scenario" value="Parameter Test scenario" />
 	<!-- scenario to be executed by executeScenario  -->
 	<property name="stopOnFailure" value="false" />
 	<!-- when true will throw exception if all testcases in scenario fails  -->
@@ -72,14 +72,13 @@
 	<property name="maxFailures" value="10" />
 	<property name="minSuccessPercentage" value="90" />
 	<!-- AI Regression testing parameters -->
-	<property name="logsRemoteFolder" value="SERVER/C:/resources/logs" />
 	<!-- server logs that will be used by the AI test generation  process  -->
 	<property name="outputFolder" value="Output" />
 	<!-- folder where the AI generated scenario and scripts will be created  -->
 	<property name="fileConfig" value="generateRegressionScenario.json" />
 	<!-- parameters of the AI generation of scenario and scripts  -->
 	<!-- Git parameters -->
-	<property name="localEmptyFolder" value="projectgit" />
+	<property name="localEmptyFolder" value="<replace_folderNameToTriggeringMachine>" />
 	<!-- folder local to machine where ant commands are triggered  -->
 	<property name="gitCredentials" value="githttp.json" />
 	<!-- file containing git credentials and repository url  -->
@@ -92,17 +91,39 @@
 		<path id="RestClientLibPath">
 			<pathelement location="${lib}/RestClient.jar"/>
 		</path>
-		<available property="file.exists" file="${lib}/RestClient.jar"/>
+			<!-- <available property="file.exists" file="${lib}/RestClient.jar"/>-->
 	</target>
 	
-	<target name="deps" depends="init" unless="${file.exists}">
+		<!-- <target name="deps" depends="init" unless="${file.exists}">-->
+	<target name="deps" depends="init">
 		<mkdir dir="${lib}"/>
-		<get src="https://appvanceivy.s3-us-west-2.amazonaws.com/projects/AppvanceCIClientWithDeps/master/latest/ivy" dest="${lib}/RestClient.jar"/>
+		<get dest="${lib}/RestClient.jar" src="http://<controller-domain-or-ip>:8080/UI/container/AppvanceCIClientWithDeps.jar"/>
 	</target>
 	
 	<target name="info">
 		<echo message="AIQ Pipeline" />
 	</target>
+	
+	<target name="setupEnvironment" depends="deps">
+	<echo message="Environment parameter environment set to ${environment}" />
+	<echo message = "${environment}" />
+				<if>
+				<contains substring="QA" string="${environment}" casesensitive="false" />
+				<then>
+					<echo message="Setting QA environment!" />
+					<copy file="Scenarios/QASearach.csv" tofile="Scenarios/Searach.csv" overwrite="true"/>
+					<echo message="File copied" />
+				</then>
+				</if>
+					<if>
+				<contains substring="UAT" string="${environment}" casesensitive="false" />
+				<then>
+					<echo message="Setting QA environment!" />
+					<copy file="Scenarios/UATSearach.csv" tofile="Scenarios/Searach.csv" overwrite="true"/>
+					<echo message="File copied" />
+				</then>
+				</if>
+				</target>	
 
 	<!--  BLUEPRINT RELATED TARGETS  -->
     <target name="blueprintCreation" depends="deps" description="EXAMPLE (typically called from blueprintDashboard) ant blueprintDashboard -Dtemplate=ai/templates/templateName.abpt -DprojectName=projectABC">
@@ -126,7 +147,7 @@
 	</target>
 	
 	<target name="stopBlueprint" depends="deps" description="EXAMPLE (typically called if duration exceeds X or failure condition): ant stopBlueprint">
-		<taskdef name="stopBlueprint" classname="com.appvance.blueprint.StoBlueprint">
+		<taskdef name="stopBlueprint" classname="com.appvance.blueprint.StopBlueprint">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
 		<stopBlueprint  aiqCreds="${aiqCreds}"/>
@@ -145,7 +166,6 @@
 			reportFolder="${blueprintResults}" 
 			environment="${environment}" 
 			permissions="${permission}"
-			keep="${MaxBuilds}" 
 			product="${product}" />
 	</target>
 	
@@ -159,6 +179,7 @@
 			bucketBase="${Bucket}" 
 			environment="${environment}" 
 			executionType="blueprints" 
+			permissions="${permission}"
 			product="${product}" />
 		<taskdef name="ProductDashboard" classname="com.appvance.ci.ProductsDashboard">
 			<classpath refid="RestClientLibPath" />
@@ -166,6 +187,7 @@
 		<ProductDashboard 
 			credentials="${awsCredentials}" 
 			bucketBase="${Bucket}" 
+			permissions="${permission}"
 			customer="${customer}" />
 							<!--
 		<taskdef name="runJira" classname="com.appvance.ci.UpdateJiraTicket" ><classpath refid="RestClientLibPath"/></taskdef><runJira maxFailures="${maxFailures}" 
@@ -239,11 +261,11 @@
 	</target>
 	
 	<!--  SCENARIO RELATED TARGETS  -->
-	<target name="executeScenario" depends="deps" description="EXAMPLE (typically called from createScenariosDashboard): ant createScenariosDashboard -Ddir=scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
+	<target name="executeScenario" depends="setupEnvironment" description="EXAMPLE (typically called from createScenariosDashboard): ant createScenariosDashboard -Ddir=scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="Demos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
+		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="REPOSITORY%2Fhubtest%2FScenarios%2FDemos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
 	</target>
 	
 	<target name="createScenariosDashboard" depends="executeScenario" description="EXAMPLE: ant createScenariosDashboard -Ddir=projectName/scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
@@ -300,6 +322,7 @@
 			product="${product}" 
 			environment="${environment}" 
 			buildVersion="${buildVersion}" 
+			permissions="${permission}"
 			executionType="scenarios" />
 		<taskdef name="ProductDashboard" classname="com.appvance.ci.ProductsDashboard">
 			<classpath refid="RestClientLibPath" />
@@ -307,6 +330,7 @@
 		<ProductDashboard 
 			credentials="${awsCredentials}" 
 			bucketBase="${Bucket}" 
+			permissions="${permission}"
 			customer="${customer}" />
 	</target>
 	
@@ -337,11 +361,8 @@
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="Demos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
-		<taskdef name="fetchScenarioResults" classname="com.appvance.ci.FetchScenarioResults">
-			<classpath refid="RestClientLibPath" />
-		</taskdef>
-		<fetchScenarioResults aiqCreds="${aiqCreds}" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" scenario="Demos-scenario.scenario" stopOnFailure="${stopOnFailure}" />
+		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="${scenario}" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
+		
 		<taskdef name="gitReporter" classname="com.appvance.ci.git.GitReporter">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
@@ -353,7 +374,7 @@
 			executionType="scenarios"
 			projectName="${projectName}"
 			reportFolder= "${scenarioReports}"
-			resultsFolder= "scenarioResults"
+			resultsFolder= "${scenarioResults}"
 		/>
     	<taskdef name="historyManager" classname="com.appvance.ci.git.HistoryManager">
     		<classpath refid="RestClientLibPath" />
