@@ -57,7 +57,7 @@ jobs:
         run: sudo apt install -y ant
 
       - name: Build with Ant
-        run: ant createScenariosDashboard -buildfile build.xml
+        run: ant createScenariosDashboard -buildfile build.xml -Denvironment=${{ github.event.inputs.environment }}
 
       - id: commit_hash
         run: echo "commit_hash=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
