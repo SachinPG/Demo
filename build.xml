@@ -97,7 +97,7 @@
 		<!-- <target name="deps" depends="init" unless="${file.exists}">-->
 	<target name="deps" depends="init">
 		<mkdir dir="${lib}"/>
-		<get dest="${lib}/RestClient.jar" src="http://35.82.126.159:8080/UI/container/AppvanceCIClientWithDeps.jar"/>
+		<get dest="${lib}/RestClient.jar" src="http://35.82.126.59:8080/UI/container/AppvanceCIClientWithDeps.jar"/>
 	</target>
 	
 	<target name="info">
