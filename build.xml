@@ -98,6 +98,11 @@
 	<target name="deps" depends="init">
 		<mkdir dir="${lib}"/>
 		<get dest="${lib}/RestClient.jar" src="http://35.82.126.59:8080/UI/container/AppvanceCIClientWithDeps.jar"/>
+		<taskdef resource="net/sf/antcontrib/antlib.xml">
+         <classpath>
+            <pathelement location="${basedir}/ant.lib/ant-contrib-1.0b3.jar"/>
+         </classpath>
+	</taskdef>
 	</target>
 	
 	<target name="info">
