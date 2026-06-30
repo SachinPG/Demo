@@ -116,7 +116,7 @@
 				<contains substring="QA" string="${environment}" casesensitive="false" />
 				<then>
 					<echo message="Setting QA environment!" />
-					<copy file="Scenarios/QASearach.csv" tofile="Scenarios/Searach.csv" overwrite="true"/>
+					<copy file="Scenarios/QASearch.csv" tofile="Scenarios/Search.csv" overwrite="true"/>
 					<echo message="File copied" />
 				</then>
 				</if>
@@ -124,7 +124,7 @@
 				<contains substring="UAT" string="${environment}" casesensitive="false" />
 				<then>
 					<echo message="Setting QA environment!" />
-					<copy file="Scenarios/UATSearach.csv" tofile="Scenarios/Searach.csv" overwrite="true"/>
+					<copy file="Scenarios/UATSearch.csv" tofile="Scenarios/Search.csv" overwrite="true"/>
 					<echo message="File copied" />
 				</then>
 				</if>
