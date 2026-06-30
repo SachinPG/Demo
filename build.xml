@@ -124,7 +124,7 @@
 				<contains substring="UAT" string="${environment}" casesensitive="false" />
 				<then>
 					<echo message="Setting UAT environment!" />
-					<copy file="Scenarios/UATSearch.csv" tofile="Scenarios/Search.csv" overwrite="true"/>
+					<copy file="Scenarios/UATSearch.csv" tofile="Scenarios/Search.csv" overwrite="true" verbose="true"/>
 					<echo message="File copied" />
 				</then>
 				</if>
