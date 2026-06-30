@@ -270,7 +270,7 @@
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="REPOSITORY%2Fhubtest%2FScenarios%2FDemos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
+		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="Demos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
 	</target>
 	
 	<target name="createScenariosDashboard" depends="executeScenario" description="EXAMPLE: ant createScenariosDashboard -Ddir=projectName/scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
