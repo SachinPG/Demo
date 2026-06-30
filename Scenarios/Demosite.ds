@@ -1,20 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testcase  name= '' description='' author='' version=''>
-<dpl filename='' exectype='' errorhandling='' type='HashDPL' locale=''/>
-<fallback useFallback='true'/>
-<step action='navigateTo' value='"https://demosite.appvance.com/"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
-  <dialect type='sahi'>
-   <accessor type='navigateTo' value='' selected='true'/>
-</dialect>
-</step>
-<step action='click' value='""' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
-  <dialect type='sahi'>
-   <accessor type='click' value='link(&quot;Bags&quot;)' selected='true'/>
-   <accessor type='click' value='link(&quot;/t/bags&quot;)' selected='false'/>
-   <accessor type='click' value='link(&quot;list-group-item&quot;)' selected='false'/>
-   <accessor type='click' value='link(0, _in(div(&quot;list-group&quot;)))' selected='false'/>
-   <accessor type='click' value='link(0, _in(div(&quot;Bags Mugs Clothing&quot;)))' selected='false'/>
-   <accessor type='click' value='link(4)' selected='false'/>
-</dialect>
-</step>
-</testcase>
+  <testcase name='' description='script generated from Web Designer' author='appvance' version='webDesigner'>
+    <dpl filename='' exectype='' errorhandling='' type='HashDPL' locale='en_US'></dpl>
+    <fallback useFallback='true'></fallback>
+    <shadowDOM useShadowDOM='true'></shadowDOM>
+    <step action='navigateTo' value='"https://demosite.appvance.net/"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='86a3433c-9de8-4443-bab2-b0007df41078' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='20cb441a-449b-4606-b731-69646b6d1805' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='click' value='link("Bags")' selected='true' fallback='true'></accessor>
+        <accessor type='click' value='link("/t/bags")' selected='false' fallback='true'></accessor>
+        <accessor type='click' value='link("list-group-item")' selected='false' fallback='true'></accessor>
+        <accessor type='click' value='link(0, _in(div("list-group")))' selected='false' fallback='true'></accessor>
+        <accessor type='click' value='link(0, _in(div("Bags Mugs Clothing")))' selected='false' fallback='true'></accessor>
+        <accessor type='click' value='link(4)' selected='false' fallback='false'></accessor>
+      </dialect>
+    </step>
+    <step action='setValue' value='"Bags"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='55f808ec-745d-4959-80c0-6e2555ca3ffb' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='XPathId' value='byXPath(&apos;//*[@id="keywords"]&apos;)' selected='true' fallback='true'></accessor>
+        <accessor type='AttrClass' value='searchbox("form-control")' selected='false' fallback='true'></accessor>
+        <accessor type='Id' value='searchbox("keywords")' selected='false' fallback='true'></accessor>
+        <accessor type='AttrName' value='searchbox("keywords")' selected='false' fallback='true'></accessor>
+        <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/header/div/div/nav/ul/li[2]/form/div[2]/input&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='RelativeXPath' value='byXPath("id(&apos;keywords&apos;)")' selected='false' fallback='true'></accessor>
+        <accessor type='XPath' value='byXPath("//input[@id=&apos;keywords&apos;]")' selected='false' fallback='true'></accessor>
+        <accessor type='Attribute' value='searchbox({&apos;type&apos;:&apos;search&apos;})' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;form[class="navbar-form"] &gt; div[class="form-group"] &gt; input[class="form-control"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;#keywords&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;input[name="keywords"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='253d7391-7d04-4d03-a250-ad0df2cb554c' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='AttrClass' value='submit("btn btn-success")' selected='true' fallback='true'></accessor>
+        <accessor type='AttrValue' value='submit("Search")' selected='false' fallback='true'></accessor>
+        <accessor type='XPathClass' value='byXPath(&apos;//*[@class="btn btn-success"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/header/div/div/nav/ul/li[2]/form/input[2]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='RelativeXPath' value='byXPath("id(&apos;search-bar&apos;)/form[@class=&apos;navbar-form&apos;]/input[@class=&apos;btn btn-success&apos;]")' selected='false' fallback='true'></accessor>
+        <accessor type='XPath' value='byXPath("//li[@id=&apos;search-bar&apos;]/form/input[2]")' selected='false' fallback='true'></accessor>
+        <accessor type='Attribute' value='submit({&apos;type&apos;:&apos;submit&apos;})' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;form[class="navbar-form"] &gt; input[class="btn btn-success"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;#search-bar &gt; .navbar-form &gt; .btn.btn-success&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;input[value="Search"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='takeHtmlSnapshot' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='70f134a9-ce4f-41d1-a4ad-7f02ca206b94' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+  </testcase>
