@@ -30,7 +30,7 @@
   </basics>
   <resources>
     <resource name="Demosite.ds" type="ds" path="{scenario}/Demosite.ds"/>
-    <resource name="Search.csv" type="csv" path="REPOSITORY/hubtest/Scenarios/Search.csv"/>
+    <resource name="Search.csv" type="csv" path="{scenario}/Search.csv"/>
   </resources>
   <testnodes>
     <node name="localhost" location="http://localhost:8080/TMServer/ws/TestNode"/>
