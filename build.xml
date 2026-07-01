@@ -123,8 +123,9 @@
 					<if>
 				<contains substring="UAT" string="${environment}" casesensitive="false" />
 				<then>
-					<echo message="Setting QA environment!" />
-					<copy file="Scenarios/UATSearch.csv" tofile="Scenarios/Search.csv" overwrite="true"/>
+					<echo message="Setting UAT environment!" />
+					<delete file="Scenarios/Search.csv" quiet="false" failonerror="false"/>
+					<copy file="${basedir}/Scenarios/UATSearch.csv" tofile="${basedir}/Scenarios/Search.csv" overwrite="true" force="true" failonerror="true" verbose="true"/>
 					<echo message="File copied" />
 				</then>
 				</if>
@@ -270,7 +271,7 @@
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
-		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="REPOSITORY%2Fhubtest%2FScenarios%2FDemos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
+		<executeScenario aiqCreds="${aiqCreds}" dir="${dir}" scenario="Demos-scenario.scenario" consoleDetails="${consoleDetails}" resultsFolder="${scenarioResults}" />
 	</target>
 	
 	<target name="createScenariosDashboard" depends="executeScenario" description="EXAMPLE: ant createScenariosDashboard -Ddir=projectName/scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
