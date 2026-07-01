@@ -267,7 +267,7 @@
 	</target>
 	
 	<!--  SCENARIO RELATED TARGETS  -->
-	<target name="executeScenario" depends="deps" description="EXAMPLE (typically called from createScenariosDashboard): ant createScenariosDashboard -Ddir=scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
+	<target name="executeScenario" depends="setupEnvironment" description="EXAMPLE (typically called from createScenariosDashboard): ant createScenariosDashboard -Ddir=scenarios -Dscenario=FunctionalBulk.scenario -Dproduct=ProductName -DprojectName=ProjectName">
 		<taskdef name="executeScenario" classname="com.appvance.ci.ExecuteScenario">
 			<classpath refid="RestClientLibPath" />
 		</taskdef>
