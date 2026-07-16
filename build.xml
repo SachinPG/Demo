@@ -27,7 +27,7 @@
 	<property name="awsCredentials" value="ec2.creds" />
 	<!-- AWS credentials with permission to start and stop the EC2 instances and upload dashboards to s3  -->
 	<!-- private, public-read, authenticated-read, aws-exec-read, bucket-owner-read -->
-	<property name="permission" value="private" />
+	<property name="permission" value="public-read" />
 	<property name="dataset" value="WebDataset.json" />
 	<!-- json data set if needed -->
 	<!-- Execute Scenario's parameters -->
